@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>کیف نمونه — نمایش سه‌بعدی</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="product-header">
+    <a class="back" href="/">&larr; بازگشت به گالری</a>
+    <h1>کیف نمونه</h1>
+  </header>
+
+  <main class="container product-page">
+    <div class="viewer-wrapper">
+      <!-- مسیر مدل نسبت به این صفحه: ../../models/product1.glb -->
+      <model-viewer id="mv" src="../../models/product1.glb" alt="محصول سه‌بعدی" camera-controls auto-rotate ar ar-modes="webxr scene-viewer quick-look" exposure="1" shadow-intensity="1" style="width:100%; height:640px;"></model-viewer>
+    </div>
+
+    <div class="product-info">
+      <h2>توضیحات محصول</h2>
+      <p>اینجا می‌توانید توضیحات مفصل محصول، قیمت، مواد و نکات ویژه را بنویسید.</p>
+
+      <div class="actions">
+        <button id="copyLink">کپی لینک نمایش برای مشتری</button>
+        <a id="downloadModel" class="button" href="../../models/product1.glb" download>دانلود مدل (.glb)</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('copyLink').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('لینک صفحه کپی شد: ' + window.location.href);
+      } catch (e) {
+        prompt('کپی خودکار پشتیبانی نمی‌شود؛ لطفاً این آدرس را کپی کنید:', window.location.href);
+      }
+    });
+  </script>
+
+  <footer class="site-footer">
+    <p>برای مشاهده در AR، از موبایل و مرورگرهای پشتیبان استفاده کنید.</p>
+  </footer>
+</body>
+</html>
